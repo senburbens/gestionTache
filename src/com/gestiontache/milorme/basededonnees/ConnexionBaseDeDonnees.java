@@ -143,7 +143,7 @@ public class ConnexionBaseDeDonnees {
 		//List temporaire=new ArrayList();
 		Object[] temporaire =new Object[2];
 		String stringStatus;
-
+		
 		if (statusARechercher == 1) {
 			stringStatus = "nouveau";
 		} else if (statusARechercher == 2) {
@@ -153,7 +153,7 @@ public class ConnexionBaseDeDonnees {
 		}
 		rs = stmt.executeQuery("SELECT T.ID AS tacheID, T.NOM AS tacheNOM, T.DESCRIPTION AS tacheDESCRIPTION,"
 				+ "T.STATUS AS tacheSTATUS, M.ID AS membreID, M.NOM AS membreNOM  FROM TACHE AS T "
-				+ "INNER JOIN MEMBRE AS M  ON T.ID_MEMBRE=M.ID WHERE T.STATUS = '"+stringStatus+"';");
+				+ "LEFT JOIN MEMBRE AS M  ON T.ID_MEMBRE = M.ID WHERE T.STATUS = '"+stringStatus+"';");
 
 		while (rs.next()) {
 			//Creation objet tache
