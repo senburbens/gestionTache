@@ -57,32 +57,32 @@ public class AffichageSurEcran  implements Gestion {
 	}
 
 	public static void afficherMenuGestionTaches(){
-		System.out.println("\n\n---> GESTION DES TACHES\n");
-		System.out.print("1 : Creer une tache\n");
-		System.out.print("2 : Modifier une tache\n");
-		System.out.print("3 : Supprimmer une tache\n");
-		System.out.print("4 : Assigner une tache a un membre\n");
-		System.out.print("5 : Afficher toutes les taches\n");
-		System.out.print("6 : Annuler\n");
-		System.out.print("\nChoix : ");			
+		System.out.println("\n\n\t\t---> GESTION DES TACHES\n");
+		System.out.print("\t\t1 : Creer une tache\n");
+		System.out.print("\t\t2 : Modifier une tache\n");
+		System.out.print("\t\t3 : Supprimmer une tache\n");
+		System.out.print("\t\t4 : Assigner une tache a un membre\n");
+		System.out.print("\t\t5 : Afficher toutes les taches\n");
+		System.out.print("\t\t6 : Annuler\n");
+		System.out.print("\n\t\tChoix : ");			
 	}
 
 	public static void afficherMenuGestionMembres(){
-		System.out.println("\n\n---> GESTION DES MEMBRES\n");
-		System.out.print("1 : Creer un membre\n");
-		System.out.print("2 : Modifier un membre\n");
-		System.out.print("3 : Supprimmer un membre\n");
-		System.out.print("4 : Afficher tous les membres\n");
-		System.out.print("5 : Annuler\n");
-		System.out.print("\nChoix : ");			
+		System.out.println("\n\n\t\t---> GESTION DES MEMBRES\n");
+		System.out.print("\t\t1 : Creer un membre\n");
+		System.out.print("\t\t2 : Modifier un membre\n");
+		System.out.print("\t\t3 : Supprimmer un membre\n");
+		System.out.print("\t\t4 : Afficher tous les membres\n");
+		System.out.print("\t\t5 : Annuler\n");
+		System.out.print("\n\t\tChoix : ");			
 	}
 
 	public static void afficherMenuAffichage(){
-		System.out.println("\n\n---> AFFICHAGE\n");
-		System.out.print("1 : Afficher les taches d'un membre\n");
-		System.out.print("2 : Affichage des taches en fonction de leur status\n");
-		System.out.print("3 : Annuler\n");
-		System.out.print("\nChoix : ");			
+		System.out.println("\n\n\t\t---> AFFICHAGE\n");
+		System.out.print("\t\t1 : Afficher les taches d'un membre\n");
+		System.out.print("\t\t2 : Affichage des taches en fonction de leur status\n");
+		System.out.print("\t\t3 : Annuler\n");
+		System.out.print("\n\t\tChoix : ");			
 	}
 
 
