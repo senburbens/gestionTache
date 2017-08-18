@@ -124,9 +124,17 @@ public class GestionTaches implements Gestion{
 			System.out.println("Identifiant du membre auquel assigner la tache : \n");
 			Application.verifierType();
 			int identifiantDuMembre=sc.nextInt();
-			System.out.println("Modification du statut : \n");
+			
+			String statusAModifier="";
 			sc.nextLine();
-			String statusAModifier = sc.nextLine();
+			while(!statusAModifier.equalsIgnoreCase("nouveau") && !statusAModifier.equalsIgnoreCase("en-progres") && !statusAModifier.equalsIgnoreCase("termine")){
+				System.out.println("Modification du statut : (nouveau, en-progres ou termine)\n");
+				statusAModifier=sc.nextLine();
+				if(!statusAModifier.equalsIgnoreCase("nouveau") && !statusAModifier.equalsIgnoreCase("en-progres") && !statusAModifier.equalsIgnoreCase("termine")){
+					System.out.println("Mauvaise saisie. Entrez : nouveau ou en-progres ou termine");
+				}
+			}
+			
 			System.out.println("Voulez-vous proceder a la modification ?\n1 : OUI\t2 : NON");
 			reponse=0;
 			while(reponse<1 || reponse>2){

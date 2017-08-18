@@ -100,16 +100,15 @@ public class AffichageSurEcran  implements Gestion {
 				System.out.println("Entrez 1, 2 ou 3\n");
 		}		
 		switch(reponse){			
-
-		case 1 :
-			afficherTachesMembre();           
-			break;
-		case 2 :
-			afficherStatutTaches();
-			break;
-		case 3 :
-			annulerAction();
-			break;
+			case 1 :
+				afficherTachesMembre();           
+				break;
+			case 2 :
+				afficherStatutTaches();
+				break;
+			case 3 :
+				annulerAction();
+				break;
 		}
 	}
 
@@ -118,37 +117,37 @@ public class AffichageSurEcran  implements Gestion {
 		//Affichage des informations sur les membres
 		reponse=1;
 		while(reponse==1){
-			System.out.println("\n\n---> INFORMATIONS SUR LES MEMBRES\n");
+			System.out.println("\n\n\t\t\t\t---> INFORMATIONS SUR LES MEMBRES\n");
 			try {
 				List<Membre> listeMembre=base.afficherMembres();
 				for(Membre m : listeMembre){
-					System.out.println("\nID : " + m.getId()+ "\t\tNOM : " + m.getNom());
+					System.out.println("\n\t\t\t\tID : " + m.getId()+ "\t\tNOM : " + m.getNom());
 					System.out.println();
 				}			
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 
-			System.out.print("\n---> Identifiant du membre pour lequel afficher les taches\n\n\tID :");
+			System.out.print("\n\t\t\t\t- Identifiant du membre pour lequel afficher les taches\n\n\t\t\t\tID :");
 			Application.verifierType();
 			reponse=sc.nextInt();
 			//Affichage des taches du membre 
-			System.out.println("\n\nAffichage des taches du membre\n");
+			System.out.println("\n\n\t\t\t\tAffichage des taches du membre\n");
 			try {
 				List<Tache> listeTaches=base.afficherTachesMembre(reponse);
-				System.out.print("ID\t\tNOM\t\tDESCRIPTION\t\tSTATUS\t\tMEMBRE\n\n");
+				//System.out.print("\t\t\t\tID\t\tNOM\t\tDESCRIPTION\t\tSTATUS\t\tMEMBRE\n\n");
 				for(Tache m : listeTaches){
-					System.out.print(m.getId());
-					System.out.print("\t\t" + m.getNom());
-					System.out.print("\t\t" + m.getDescription());
-					System.out.print("\t\t" + m.getStatus());
-					System.out.println("\t\t" + m.getIdMembre());
+					System.out.println("\t\t\t\tID : " + m.getId());
+					System.out.println("\t\t\t\t\tNOM : " + m.getNom());
+					System.out.println("\t\t\t\t\tDESCRIPTION : " + m.getDescription());
+					System.out.println("\t\t\t\t\tSTATUS : " + m.getStatus());
+					System.out.println("\t\t\t\t\tMEMBRE : " + m.getIdMembre());
 					System.out.println();
 				}			
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}   
-			System.out.println("\n\nRecommencer ?1 : OUI\t2 : NON\n\nreponse : ");
+			System.out.print("\n\n\t\t\t\tRecommencer ?1 : OUI\t2 : NON\n\n\t\t\t\treponse : ");
 			reponse=0;
 			while(reponse<1 || reponse >2){
 				Application.verifierType();
@@ -160,36 +159,37 @@ public class AffichageSurEcran  implements Gestion {
 	private static void afficherStatutTaches(){
 		reponse=1;
 		while(reponse==1){
-			System.out.println("---> Veuillez entrer le status des taches a afficher\n\t 1 : nouveau\t2 : en_progres\t3 : termine \n");
+			System.out.print("\t\t\t\tVeuillez entrer le status des taches a afficher\n\t\t\t\t 1 : nouveau\t2 : en_progres\t3 : termine\n\t\t\t\tChoix : ");
 
 			reponse=0;			
 			while(reponse<1 || reponse>3){
 				Application.verifierType();
 				reponse = sc.nextInt();		
-				if(reponse<1 || reponse>2)
-					System.out.println("Entrez 1, 2 ou 3\n");
+				if(reponse<1 || reponse>3)
+					System.out.println("\t\t\t\tEntrez 1, 2 ou 3\n");
 			}	
 			try {
 				List<Object[]>  statusTaches=base.afficherStatusTaches(reponse);
 				Tache t;
 				Membre m;
-
+				
+				System.out.println("\n\t\t\t\tListe des taches\n");
 				for(Object[] obj : statusTaches){
 					t= (Tache) obj[0];
 					m= (Membre) obj[1];
 
-					System.out.println("ID: " + t.getId());
-					System.out.println("NOM TACHE: " + t.getNom());
-					System.out.println("DESCRIPTION TACHE: " + t.getDescription());
-					System.out.println("STATUS TACHE: " + t.getStatus());
-					System.out.println("ID MEMBRE: " + m.getId());
-					System.out.println("NOM MEMBRE: " + m.getNom());
+					System.out.println("\t\t\t\tID: " + t.getId());
+					System.out.println("\t\t\t\t\tNOM TACHE: " + t.getNom());
+					System.out.println("\t\t\t\t\tDESCRIPTION TACHE: " + t.getDescription());
+					System.out.println("\t\t\t\t\tSTATUS TACHE: " + t.getStatus());
+					System.out.println("\t\t\t\t\tID MEMBRE: " + m.getId());
+					System.out.println("\t\t\t\t\tNOM MEMBRE: " + m.getNom());
 					System.out.println();
 				}		
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			System.out.println("\n\nRecommencer ?1 : OUI\t2 : NON\n\nreponse : ");
+			System.out.print("\n\n\t\t\t\tRecommencer ?1 : OUI\t2 : NON\n\n\t\t\t\treponse : ");
 			reponse=0;
 			while(reponse<1 || reponse >2){
 				Application.verifierType();

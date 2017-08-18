@@ -99,6 +99,8 @@ public class ConnexionBaseDeDonnees {
 
 		try {			
 			stmt.executeUpdate(sql);
+			sql="UPDATE TACHE SET ID_MEMBRE = NULL WHERE ID_MEMBRE=0;";
+			stmt.executeUpdate(sql);
 			System.out.println("\nTache enregistree\n");
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -111,10 +113,10 @@ public class ConnexionBaseDeDonnees {
 		try {
 			stmt.executeUpdate("INSERT INTO MEMBRE (NOM) " + 
 					"VALUES ('" + membre.getNom()+"');");
-			System.out.println("\nMembre enregistre\n");
+			System.out.println("\n\t\t\t\t\t\tMembre enregistre\n");
 		} catch (SQLException e) {
 			//e.printStackTrace();
-			System.out.println("\nErreur ! Le membre n'a pas ete cree\n");
+			System.out.println("\n\t\t\t\t\t\tErreur ! Le membre n'a pas ete cree\n");
 		}
 	}
 
@@ -135,16 +137,16 @@ public class ConnexionBaseDeDonnees {
 	}
 
 	//Methode permettant d'afficher toutes les taches selon leurs status et les infos du membre associe
-	public List<Object[]> afficherStatusTaches(int status_a_chercher) throws SQLException {
+	public List<Object[]> afficherStatusTaches(int statusARechercher) throws SQLException {
 
 		List<Object[]> listeTachesStatus = new ArrayList<Object[]>();	
 		//List temporaire=new ArrayList();
 		Object[] temporaire =new Object[2];
 		String stringStatus;
 
-		if (status_a_chercher == 1) {
+		if (statusARechercher == 1) {
 			stringStatus = "nouveau";
-		} else if (status_a_chercher == 2) {
+		} else if (statusARechercher == 2) {
 			stringStatus = "en-progres";
 		} else {
 			stringStatus = "termine";

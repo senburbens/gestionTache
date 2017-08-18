@@ -2,7 +2,6 @@ package com.gestiontache.milorme.manager;
 
 import java.sql.SQLException;
 import java.util.List;
-
 import com.gestiontache.milorme.affichage.AffichageSurEcran;
 import com.gestiontache.milorme.entites.Membre;
 import com.gestiontache.milorme.app.Application;
@@ -45,30 +44,30 @@ public class GestionMembres implements Gestion{
 	
 	private static void creerMembre(){
 		reponse=1;
-		System.out.println("\n---> CREATION MEMBRE\n");
+		System.out.println("\n\t\t\t\t---> CREATION MEMBRE");
 		while(reponse==1){
-			System.out.println("\t\tNom membre  : \n");
+			System.out.print("\n\t\t\t\t\t\tNom membre  : ");
 			sc.nextLine();
 			String nomMembre=sc.nextLine();
-			System.out.println("Ajouter le membre cree ?\n1 : OUI\t2 : NON");
+			System.out.print("\n\t\t\t\t\t\tAjouter le membre cree ?\n\t\t\t\t\t\t1 : OUI\t2 : NON\n\t\t\t\t\t\tChoix : ");
 			reponse=0;
 			while(reponse<1 || reponse>2){
 				Application.verifierType();
 				reponse=sc.nextInt();
 				if(reponse<1 || reponse>2){
-					System.out.println("Entrez 1 ou 2\nChoix : ");
+					System.out.print("\t\t\t\t\t\tEntrez 1 ou 2\n\t\t\t\t\t\tChoix : ");
 				}
 			}
 			if(reponse==1){
 				base.creerMembre(new Membre(0,nomMembre));
 			}						
-			System.out.println("Voulez-vous creer un autre membre ?\n1 : OUI\t2 : NON");
+			System.out.print("\n\t\t\t\t\t\tVoulez-vous creer un autre membre ?\n\t\t\t\t\t\t1 : OUI\t2 : NON\n\t\t\t\t\t\tChoix : ");
 			reponse=0;
 			while(reponse<1 || reponse >2){
 				Application.verifierType();
 				reponse=sc.nextInt();
 				if(reponse<1 || reponse>2){
-					System.out.println("Entrez 1 ou 2\nChoix : ");
+					System.out.println("\t\t\t\t\t\tEntrez 1 ou 2\n\t\t\t\t\t\tChoix : ");
 				}
 			}
 		}		
