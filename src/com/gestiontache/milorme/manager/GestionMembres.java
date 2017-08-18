@@ -77,13 +77,14 @@ public class GestionMembres implements Gestion{
 
 	private static void modifierMembre(){
 		reponse=1;
+		List<Membre> listeMembre;
 		
 		while(reponse==1){
 
 			try {
 				//Affichage des membres
 				System.out.println("\n\n---> LISTE DES MEMBRES");
-				List<Membre> listeMembre=base.afficherMembres();
+				listeMembre=base.afficherMembres();
 				for(Membre t : listeMembre){
 					System.out.println("\nIDENTIFIANT : " + t.getId()+ "\nNOM : " + t.getNom());
 					System.out.println();
@@ -126,10 +127,12 @@ public class GestionMembres implements Gestion{
 
 	private static void supprimerMembre(){
 		reponse=1;
+		List<Membre> listeMembre;
+		
 		while(reponse==1){
 			System.out.println("\n\n---> LISTE DES MEMBRES");
 			try {
-				List<Membre> listeMembre=base.afficherMembres();
+				listeMembre=base.afficherMembres();
 				for(Membre t : listeMembre){
 					System.out.println("\nID : " + t.getId()+ "\nNOM : " + t.getNom());
 					System.out.println();
@@ -170,5 +173,10 @@ public class GestionMembres implements Gestion{
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}		
+	}
+	
+	private static boolean verificationID(){
+		
+		return true;
 	}
 }

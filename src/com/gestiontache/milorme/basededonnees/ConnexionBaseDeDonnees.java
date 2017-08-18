@@ -219,7 +219,8 @@ public class ConnexionBaseDeDonnees {
 
 			System.out.println("\nMembre modifie\n");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			System.out.println("!!! Echec de la modification !!! Verifiez l'ID\n");
 		}
 	}
 

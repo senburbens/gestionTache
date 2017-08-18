@@ -13,7 +13,7 @@ public class GestionTaches implements Gestion{
 	private static int reponse;
 
 	public static void gererTaches(){
-		
+
 		AffichageSurEcran.afficherMenuGestionTaches();
 		reponse=0;
 
@@ -23,26 +23,26 @@ public class GestionTaches implements Gestion{
 			if(reponse<1 || reponse>6)
 				System.out.println("Entrez un entier entre 1 et 5 inclus\n");
 		}		
-		
+
 		switch(reponse){
-			case 1 :			
-				creerTache();
-				break;
-			case 2 :
-				modifierTache();
-				break;
-			case 3 :
-				supprimerTache();
-				break;
-			case 4 :
-				assignerTache();
-				break;
-			case 5 :
-				afficherTache();
-				break;
-			case 6 :
-				System.out.println("\nOperation annulee\n");
-				break;
+		case 1 :			
+			creerTache();
+			break;
+		case 2 :
+			modifierTache();
+			break;
+		case 3 :
+			supprimerTache();
+			break;
+		case 4 :
+			assignerTache();
+			break;
+		case 5 :
+			afficherTaches();
+			break;
+		case 6 :
+			System.out.println("\nOperation annulee\n");
+			break;
 		}
 	}
 
@@ -75,6 +75,9 @@ public class GestionTaches implements Gestion{
 			while(reponse<1 || reponse>2){
 				Application.verifierType();
 				reponse=sc.nextInt();
+				if(reponse<1 || reponse>2){
+					System.out.println("Entrez 1 ou 2\nChoix : ");
+				}
 			}
 			if(reponse==1){
 				base.creerTache(new Tache(0,nomTache,descriptionTache,"",identifiant));
@@ -85,17 +88,20 @@ public class GestionTaches implements Gestion{
 			while(reponse<1 || reponse >2){
 				Application.verifierType();
 				reponse=sc.nextInt();
+				if(reponse<1 || reponse>2){
+					System.out.println("Entrez 1 ou 2\nChoix : ");
+				}
 			}
 		}
 	}
 
 	private static void modifierTache(){
 		reponse=1;
-
+		List<Tache> listeTache;
 		while(reponse==1){
 			System.out.println("\n\n---> LISTE DES TACHES\n");
 			try {
-				List<Tache> listeTache=base.afficherTaches();
+				listeTache=base.afficherTaches();
 				for(Tache t : listeTache){
 					System.out.println("\nIDENTIFIANT : " + t.getId()+ "\n\tNOM : " + t.getNom() + "\n\tDESCRIPTION : "+ t.getDescription() + "\n\tSTATUS : " +
 							t.getStatus() + "\n\tIDENTIFIANT MEMBRE : "+ t.getIdMembre());
@@ -105,6 +111,7 @@ public class GestionTaches implements Gestion{
 				e.printStackTrace();
 			}
 			System.out.println("\n---> Identifiant de la tache a modifier\nID :");
+			Application.verifierType();
 			int identifiantTacheAModifier=sc.nextInt();
 
 			System.out.println("\n---> Modification de la tache\n");
@@ -115,6 +122,7 @@ public class GestionTaches implements Gestion{
 			String descriptionTacheAModifier=sc.nextLine();
 			//Verifier que l'utilisateur a entrer un entier
 			System.out.println("Identifiant du membre auquel assigner la tache : \n");
+			Application.verifierType();
 			int identifiantDuMembre=sc.nextInt();
 			System.out.println("Modification du statut : \n");
 			sc.nextLine();
@@ -124,6 +132,7 @@ public class GestionTaches implements Gestion{
 			while(reponse<1 || reponse>2){
 				Application.verifierType();
 				reponse=sc.nextInt();
+				System.out.println("Entrez 1 ou 2\nChoix : ");
 			}
 			if(reponse==1){
 				base.modifierTache(new Tache(identifiantTacheAModifier,nomTacheAModifier,descriptionTacheAModifier,statusAModifier,identifiantDuMembre));
@@ -133,62 +142,120 @@ public class GestionTaches implements Gestion{
 			while(reponse<1 || reponse >2){
 				Application.verifierType();
 				reponse=sc.nextInt();
+				System.out.println("Entrez 1 ou 2\nChoix : ");
 			}
 		}
 	}
 
 	private static void supprimerTache(){
-		System.out.println("\n\n---> LISTE DES TACHES\n");
-		try {
-			List<Tache> listeTache=base.afficherTaches();
-			for(Tache t : listeTache){
-				System.out.println("\nIDENTIFIANT : " + t.getId()+ "\nNOM : " + t.getNom() + "\nDESCRIPTION"+ t.getDescription() + "\nSTATUS" +
-						t.getStatus() + "\nIDENTIFIANT MEMBRE"+ t.getIdMembre());
-				System.out.println();
-			}			
-		} catch (SQLException e) {
-			e.printStackTrace();
+		reponse=1;
+		List<Tache> listeTache;
+		while(reponse==1){
+			System.out.println("\n\n---> LISTE DES TACHES\n");
+			try {
+				listeTache=base.afficherTaches();
+				for(Tache t : listeTache){
+					System.out.println("\nIDENTIFIANT : " + t.getId()+ "\nNOM : " + t.getNom() + "\nDESCRIPTION"+ t.getDescription() + "\nSTATUS" +
+							t.getStatus() + "\nIDENTIFIANT MEMBRE"+ t.getIdMembre());
+					System.out.println();
+				}			
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			System.out.println("\n---> Identifiant de la tache a supprimer\n");
+			Application.verifierType();
+			int identifiantTacheASupprimer=sc.nextInt();	
+			System.out.println("Voulez-vous proceder a la suppression ?\n1 : OUI\t2 : NON");
+			reponse=0;
+			while(reponse<1 || reponse>2){
+				Application.verifierType();
+				reponse=sc.nextInt();
+				if(reponse<1 || reponse>2){
+					System.out.print("Entrez 1 ou 2\nChoix : ");
+				}
+			}
+			if(reponse==1){
+				base.supprimerTache(identifiantTacheASupprimer);
+			}
+			System.out.println("Voulez-vous supprimer une autre tache ?\n1 : OUI\t2 : NON");
+			reponse=0;
+			while(reponse<1 || reponse >2){
+				Application.verifierType();
+				reponse=sc.nextInt();
+				if(reponse<1 || reponse>2){
+					System.out.print("Entrez 1 ou 2\nChoix : ");
+				}
+			}
 		}
-		System.out.println("\n---> Identifiant de la tache a supprimer\n");
-		int identifiantTacheASupprimer=sc.nextInt();							
-		base.supprimerTache(identifiantTacheASupprimer);
 	} 
 
 	private static void assignerTache(){
 		//Assigner tache a un membre code here
-		System.out.println("\n\n---> LISTE DES TACHES\n");
-		try {
-			//Affichage des taches
-			List<Tache> listeTache=base.afficherTaches();
-			for(Tache t : listeTache){
-				System.out.println("\nIDENTIFIANT : " + t.getId()+ "\nNOM : " + t.getNom() + "\nDESCRIPTION"+ t.getDescription() + "\nSTATUS" +
-						t.getStatus() + "\nIDENTIFIANT MEMBRE"+ t.getIdMembre());
-				System.out.println();
-			}	
+		reponse=1;
+		List<Tache> listeTache;
+		while(reponse==1){
+			System.out.println("\n\n---> LISTE DES TACHES\n");
+			try {
+				//Affichage des taches
+				listeTache=base.afficherTaches();
+				for(Tache t : listeTache){
+					System.out.println("\nIDENTIFIANT : " + t.getId()+ "\nNOM : " + t.getNom() + "\nDESCRIPTION"+ t.getDescription() + "\nSTATUS" +
+							t.getStatus() + "\nIDENTIFIANT MEMBRE"+ t.getIdMembre());
+					System.out.println();
+				}	
 
-			//Affichage des membres
-			System.out.println("\n\n---> LISTE DES MEMBRES");
-			List<Membre> listeMembre=base.afficherMembres();
-			for(Membre t : listeMembre){
-				System.out.println("\nIDENTIFIANT : " + t.getId()+ "\nNOM : " + t.getNom());
-				System.out.println();
+				//Affichage des membres
+				System.out.println("\n\n---> LISTE DES MEMBRES");
+				List<Membre> listeMembre=base.afficherMembres();
+				for(Membre t : listeMembre){
+					System.out.println("\nIDENTIFIANT : " + t.getId()+ "\nNOM : " + t.getNom());
+					System.out.println();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.print("\nIdentifiant de la tache\nIdentifiantTache : ");
+			Application.verifierType();
+			int identifiantTacheAAssigner=sc.nextInt();
+			System.out.print("\nIdentifiant du membre\nIdentifiantMembre : ");
+			Application.verifierType();
+			int identifiantMembreAAssigner=sc.nextInt();
+			System.out.println("Voulez-vous proceder a l'assignation ?\n1 : OUI\t2 : NON");
+			reponse=0;
+			while(reponse<1 || reponse>2){
+				Application.verifierType();
+				reponse=sc.nextInt();
+				if(reponse<1 || reponse>2){
+					System.out.print("Entrez 1 ou 2\nChoix : ");
+				}
+			}
+			if(reponse==1){
+				base.assignerTacheAUnMembre(identifiantTacheAAssigner, identifiantMembreAAssigner);
+			}
+
+			System.out.println("Voulez-vous assigner une autre tache ?\n1 : OUI\t2 : NON");
+			reponse=0;
+			while(reponse<1 || reponse >2){
+				Application.verifierType();
+				reponse=sc.nextInt();
+				if(reponse<1 || reponse>2){
+					System.out.print("Entrez 1 ou 2\nChoix : ");
+				}
+			}
 		}
-		System.out.print("\nIdentifiant de la tache\nIdentifiantTache : ");
-		int identifiantTacheAAssigner=sc.nextInt();
-		System.out.print("\nIdentifiant du membre\nIdentifiantMembre : ");
-		int identifiantMembreAAssigner=sc.nextInt();
-		base.assignerTacheAUnMembre(identifiantTacheAAssigner, identifiantMembreAAssigner);
 	}
 
-	private static void afficherTache(){
+	private static void afficherTaches(){
 		try {
 			AffichageSurEcran.afficherTaches(base.afficherTaches());
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
+	}
+
+	private static boolean verificationID(){
+
+		return true;
 	}
 
 }
