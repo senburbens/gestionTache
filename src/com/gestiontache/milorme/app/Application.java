@@ -5,11 +5,9 @@ import java.sql.SQLException;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Scanner;
-
 import com.gestiontache.milorme.entites.Tache;
 import com.gestiontache.milorme.manager.GestionMembres;
 import com.gestiontache.milorme.manager.GestionTaches;
-
 import com.gestiontache.milorme.affichage.AffichageSurEcran;
 import com.gestiontache.milorme.manager.Gestion;
 import com.gestiontache.milorme.basededonnees.ConnexionBaseDeDonnees;

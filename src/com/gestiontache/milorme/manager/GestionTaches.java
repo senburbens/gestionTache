@@ -273,9 +273,4 @@ public class GestionTaches implements Gestion{
 		}
 	}
 
-	private static boolean verificationID(){
-
-		return true;
-	}
-
 }

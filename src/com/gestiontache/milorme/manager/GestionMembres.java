@@ -173,9 +173,4 @@ public class GestionMembres implements Gestion{
 			e1.printStackTrace();
 		}		
 	}
-	
-	private static boolean verificationID(){
-		
-		return true;
-	}
 }

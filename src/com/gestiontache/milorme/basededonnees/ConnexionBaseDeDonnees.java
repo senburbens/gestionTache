@@ -5,9 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
-
 import com.gestiontache.milorme.entites.Tache;
-
 import com.gestiontache.milorme.entites.Membre;
 
 public class ConnexionBaseDeDonnees {	
