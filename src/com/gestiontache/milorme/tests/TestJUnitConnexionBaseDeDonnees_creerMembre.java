@@ -1,3 +1,5 @@
+package com.gestiontache.milorme.tests;
+
 import static org.junit.Assert.*;
 
 import java.awt.List;
