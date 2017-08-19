@@ -20,6 +20,5 @@ Exécution du programme
 
 3) Cliquer droit sur la classe principale du projet Main.java se trouver dans le package com.gestiontache.milorme.app, se rendre dans l’entrée Run as, sélectionner Java Application.
 
-4) Dans le cas ou l’application renvoie des erreurs causées par un mauvais référencement des bibliothèques jar pour interfacer avec la base de données ou pour l’utilisation de JUnit, rajouter celles-ci dans le CLASSPATH du projet en cliquant sur celui-ci et sélectionner Properties, puis Build Path, sélectionner Librairies, enlever les jar mal références, cliquer sur Add External jars, chercher les dans le répertoire racine du projet, valider.
+4) Dans le cas ou l’application renvoie des erreurs causées par un mauvais référencement des bibliothèques jar pour interfacer avec la base de données ou pour l’utilisation de JUnit, rajouter celles-ci dans le CLASSPATH du projet en cliquant sur celui-ci et sélectionner Properties, puis Build Path, sélectionner Librairies, enlever les jar mal références, cliquer sur Add External jars, chercher les dans le répertoire racine du projet, valider. Refaire les manipulations 1, 2 et 3.
 
-5) Refaire les manipulations 1, 2 et 3.
