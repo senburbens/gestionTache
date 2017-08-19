@@ -111,7 +111,7 @@ public class ConnexionBaseDeDonnees {
 	}
 
 	//Methode permettant de creer un membre
-	public void creerMembre(Membre membre) {		
+	public boolean creerMembre(Membre membre) {		
 		
 		membre.setNom(membre.getNom().replace('\'', ' '));
 		
@@ -121,7 +121,9 @@ public class ConnexionBaseDeDonnees {
 			System.out.println("\n\t\t\t\t\t\tMembre enregistre\n");
 		} catch (SQLException e) {
 			System.out.println("\n\t\t\t\t\t\tErreur ! Le membre n'a pas ete cree\n");
+			return false;
 		}
+		return true;
 	}
 
 	//Methode permettant d'afficher les taches assignees a un membre
@@ -206,7 +208,7 @@ public class ConnexionBaseDeDonnees {
 	}
 
 	//Modifications
-	public void modifierTache(Tache tache) {		
+	public boolean modifierTache(Tache tache) {		
 		
 		tache.setNom(tache.getNom().replace('\'', ' '));
 		tache.setDescription((tache.getDescription().replace('\'', ' ')));
@@ -219,8 +221,9 @@ public class ConnexionBaseDeDonnees {
 
 			System.out.println("\n\t\t\t\tTache modifie\n");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			return false;
 		}
+		return true;
 	}
 
 	public void modifierMembre(Membre membre) {		
