@@ -36,23 +36,23 @@ public class AffichageSurEcran  implements Gestion {
 	}
 
 	public static void afficherMembres(List<Membre> listeMembres){	
-		System.out.println("\n\nLISTE DES MEMBRES EXISTANTS\n");
+		System.out.println("\n\n\t\t\t\tLISTE DES MEMBRES EXISTANTS\n");
 		for(Membre m : listeMembres){
-			System.out.print(m.getId());
-			System.out.println("\t\t"+m.getNom());
-			System.out.println("----------");
+			System.out.print("\t\t\t\t"+m.getId());
+			System.out.println("\t\t\t\t"+m.getNom());
+			System.out.println();
 		}
 	}
 
 	public static void afficherTaches(List<Tache> listeTaches){	
-		System.out.println("\n\nLISTE DES TACHES EXISTANTES\n");
+		System.out.println("\n\n\n\n\t\t\t\tLISTE DES TACHES EXISTANTES\n");
 		for(Tache t : listeTaches){
-			System.out.println(t.getId());
-			System.out.println(t.getNom());
-			System.out.println(t.getDescription());
-			System.out.println(t.getStatus());
-			System.out.println(t.getIdMembre());
-			System.out.println("");
+			System.out.print("\n\n\t\t\t\tID : "+t.getId());
+			System.out.print("\n\t\t\t\tNOM : "+t.getNom());
+			System.out.print("\n\t\t\t\tDESCRIPTION : "+t.getDescription());
+			System.out.print("\n\t\t\t\tSTATUT : "+t.getStatus());
+			System.out.print("\n\t\t\t\tMEMBRE ASSOCIE : "+t.getIdMembre());
+			System.out.println();
 		}
 	}
 

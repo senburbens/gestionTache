@@ -101,10 +101,10 @@ public class ConnexionBaseDeDonnees {
 			stmt.executeUpdate(sql);
 			sql="UPDATE TACHE SET ID_MEMBRE = NULL WHERE ID_MEMBRE=0;";
 			stmt.executeUpdate(sql);
-			System.out.println("\nTache enregistree\n");
+			System.out.println("\n\t\t\t\tTache enregistree\n");
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("\nErreur !. La tache n'a pas ete cree.\n");
+			System.out.println("\n\t\t\t\tErreur !. La tache n'a pas ete cree.\n");
 		}
 	}
 
@@ -208,7 +208,7 @@ public class ConnexionBaseDeDonnees {
 					"',STATUS='"+tache.getStatus()+"',ID_MEMBRE='"+tache.getIdMembre()+
 					"' WHERE ID='"+tache.getId()+"';"); 
 
-			System.out.println("\nTache modifie\n");
+			System.out.println("\n\t\t\t\tTache modifie\n");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -219,10 +219,10 @@ public class ConnexionBaseDeDonnees {
 			stmt.executeUpdate("UPDATE MEMBRE SET NOM='"+membre.getNom()+
 					"' WHERE ID='"+membre.getId()+"';"); 
 
-			System.out.println("\nMembre modifie\n");
+			System.out.println("\n\t\t\t\tMembre modifie\n");
 		} catch (SQLException e) {
 			//e.printStackTrace();
-			System.out.println("!!! Echec de la modification !!! Verifiez l'ID\n");
+			System.out.println("\t\t\t\t!!! Echec de la modification !!! Verifiez l'ID\n");
 		}
 	}
 
@@ -232,7 +232,7 @@ public class ConnexionBaseDeDonnees {
 			stmt.executeUpdate("UPDATE TACHE SET ID_MEMBRE='"+idMembre
 					+"'WHERE ID='"+idTache+"';"); 
 
-			System.out.println("\nTache assignee\n");
+			System.out.println("\n\t\t\t\tTache assignee\n");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -246,7 +246,7 @@ public class ConnexionBaseDeDonnees {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println("\nTache supprimee\n");
+		System.out.println("\n\t\t\t\tTache supprimee\n");
 	}
 
 	public void supprimerMembre(int idMembre) {
@@ -257,7 +257,7 @@ public class ConnexionBaseDeDonnees {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println("\nMembre supprime\n");
+		System.out.println("\n\t\t\t\tMembre supprime\n");
 	}
 
 	// Methode permettant de fermer et liberer les ressources

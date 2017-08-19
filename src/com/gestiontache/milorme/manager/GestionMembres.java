@@ -82,42 +82,42 @@ public class GestionMembres implements Gestion{
 
 			try {
 				//Affichage des membres
-				System.out.println("\n\n---> LISTE DES MEMBRES");
+				System.out.println("\n\n\t\t\t\t---> LISTE DES MEMBRES");
 				listeMembre=base.afficherMembres();
 				for(Membre t : listeMembre){
-					System.out.println("\nIDENTIFIANT : " + t.getId()+ "\nNOM : " + t.getNom());
+					System.out.println("\n\t\t\t\tIDENTIFIANT : " + t.getId()+ "\n\t\t\t\tNOM : " + t.getNom());
 					System.out.println();
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 
-			System.out.println("\n---> Identifiant du membre a modifier\nID :");
+			System.out.print("\n\t\t\t\t---> Identifiant du membre a modifier\n\t\t\t\tID : ");
 			Application.verifierType();
 			int identifiantMembreAModifier=sc.nextInt();							
-			System.out.println("\n---> Modification du membre\n");
-			System.out.println("Nom du membre  : \n");
+			System.out.println("\n\t\t\t\t---> Modification du membre\n");
+			System.out.print("\t\t\t\tNom du membre  : ");
 			sc.nextLine();
 			String nomMembreAModifier=sc.nextLine();
-			System.out.println("Voulez-vous proceder a la modification ?\n1 : OUI\t2 : NON");
+			System.out.print("\t\t\t\tVoulez-vous proceder a la modification ?\n\t\t\t\t1 : OUI\t2 : NON\n\t\t\t\tChoix : ");
 			reponse=0;
 			while(reponse<1 || reponse>2){
 				Application.verifierType();
 				reponse=sc.nextInt();
 				if(reponse<1 || reponse>2){
-					System.out.println("Entrez 1 ou 2\nChoix : ");
+					System.out.print("\t\t\t\tEntrez 1 ou 2\n\t\t\t\tChoix : ");
 				}
 			}
 			if(reponse==1){
 				base.modifierMembre(new Membre(identifiantMembreAModifier,nomMembreAModifier));
 			}					
-			System.out.println("Voulez-vous modifier un autre membre ?\n1 : OUI\t2 : NON");
+			System.out.println("\t\t\t\tVoulez-vous modifier un autre membre ?\n\t\t\t\t1 : OUI\t2 : NON");
 			reponse=0;
 			while(reponse<1 || reponse >2){
 				Application.verifierType();
 				reponse=sc.nextInt();
 				if(reponse<1 || reponse>2){
-					System.out.println("Entrez 1 ou 2\nChoix : ");
+					System.out.println("\t\t\t\tEntrez 1 ou 2\nChoix : ");
 				}
 			}
 		}
@@ -129,38 +129,38 @@ public class GestionMembres implements Gestion{
 		List<Membre> listeMembre;
 		
 		while(reponse==1){
-			System.out.println("\n\n---> LISTE DES MEMBRES");
+			System.out.println("\n\n\t\t\t\t---> LISTE DES MEMBRES");
 			try {
 				listeMembre=base.afficherMembres();
 				for(Membre t : listeMembre){
-					System.out.println("\nID : " + t.getId()+ "\nNOM : " + t.getNom());
+					System.out.println("\n\t\t\t\tID : " + t.getId()+ "\n\t\t\t\tNOM : " + t.getNom());
 					System.out.println();
 				}			
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			System.out.println("\n---> Identifiant du membre a supprimer\n");
+			System.out.print("\n\t\t\t\t---> Identifiant du membre a supprimer : ");
 			Application.verifierType();
 			int identifiantMembre=sc.nextInt();	
-			System.out.println("Voulez-vous proceder a la suppression ?\n1 : OUI\t2 : NON");
+			System.out.println("\t\t\t\tVoulez-vous proceder a la suppression ?\n\t\t\t\t1 : OUI\t2 : NON");
 			reponse=0;
 			while(reponse<1 || reponse>2){
 				Application.verifierType();
 				reponse=sc.nextInt();
 				if(reponse<1 || reponse>2){
-					System.out.println("Entrez 1 ou 2\nChoix : ");
+					System.out.println("\t\t\t\tEntrez 1 ou 2\n\t\t\t\tChoix : ");
 				}
 			}
 			if(reponse==1){
 				base.supprimerMembre(identifiantMembre);
 			}	
-			System.out.println("Voulez-vous supprimer un autre membre ?\n1 : OUI\t2 : NON");
+			System.out.print("\t\t\t\tVoulez-vous supprimer un autre membre ?\n\t\t\t\t1 : OUI\t2 : NON\n\t\t\t\tChoix : ");
 			reponse=0;
 			while(reponse<1 || reponse >2){
 				Application.verifierType();
 				reponse=sc.nextInt();
 				if(reponse<1 || reponse>2){
-					System.out.println("Entrez 1 ou 2\nChoix : ");
+					System.out.println("\t\t\t\tEntrez 1 ou 2\n\t\t\t\tChoix : ");
 				}
 			}
 		}
