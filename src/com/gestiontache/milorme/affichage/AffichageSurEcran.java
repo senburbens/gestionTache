@@ -204,6 +204,6 @@ public class AffichageSurEcran  implements Gestion {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		System.out.println("Action Annulee\n");
+		System.out.println("\n\t\tAction Annulee\n");
 	}
 }

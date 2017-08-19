@@ -55,6 +55,11 @@ public class GestionTaches implements Gestion{
 		reponse=1;
 		System.out.println("\n\t\t\t\t---> CREATION DE TACHES\n");
 		while(reponse==1){
+			System.out.print("\n\t\t\t\tNom tache  : ");
+			sc.nextLine();
+			String nomTache=sc.nextLine();
+			System.out.print("\t\t\t\tDescription : ");
+			String descriptionTache=sc.nextLine();
 			System.out.println("\n\n\t\t\t\tINFORMATIONS SUR LES MEMBRES\n");
 			try {
 				List<Membre> listeMembre=base.afficherMembres();
@@ -65,12 +70,6 @@ public class GestionTaches implements Gestion{
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
-			System.out.println("\n\t\t\t\t---> Creation de tache\n");
-			System.out.print("\t\t\t\tNom tache  : ");
-			sc.nextLine();
-			String nomTache=sc.nextLine();
-			System.out.print("\t\t\t\tDescription : ");
-			String descriptionTache=sc.nextLine();
 			System.out.print("\t\t\t\tIdentifiant du membre (0 si vous ne voulez pas assigner maintenant) : ");
 			Application.verifierType();
 			int identifiant=sc.nextInt();	
@@ -241,7 +240,7 @@ public class GestionTaches implements Gestion{
 			System.out.print("\n\t\t\t\tID membre : ");
 			Application.verifierType();
 			int identifiantMembreAAssigner=sc.nextInt();
-			System.out.print("\t\t\t\tVoulez-vous proceder a l'assignation ?\n\t\t\t\t1 : OUI\t2 : NON\n\t\t\t\tChoix : ");
+			System.out.print("\t\t\t\tVoulez-vous proceder a l'assignation ?\n\t\t\t\t1 : OUI\t2 : NON\nChoix : ");
 			reponse=0;
 			while(reponse<1 || reponse>2){
 				Application.verifierType();

@@ -89,6 +89,10 @@ public class ConnexionBaseDeDonnees {
 		int idMembre=tache.getIdMembre();
 		String status="", sql="";
 
+		tache.setNom(tache.getNom().replace('\'', ' '));
+		tache.setDescription((tache.getDescription().replace('\'', ' ')));
+		tache.setStatus((tache.getNom().replace('\'', ' ')));
+		
 		if( idMembre<=0){
 			status="nouveau";
 			sql="INSERT INTO TACHE(NOM, DESCRIPTION, STATUS, ID_MEMBRE) " + "VALUES('" + tache.getNom()+"','"+ tache.getDescription() +"','" + status + "', NULL );";
@@ -110,12 +114,14 @@ public class ConnexionBaseDeDonnees {
 
 	//Methode permettant de creer un membre
 	public void creerMembre(Membre membre) {		
+		
+		membre.setNom(membre.getNom().replace('\'', ' '));
+		
 		try {
 			stmt.executeUpdate("INSERT INTO MEMBRE (NOM) " + 
 					"VALUES ('" + membre.getNom()+"');");
 			System.out.println("\n\t\t\t\t\t\tMembre enregistre\n");
 		} catch (SQLException e) {
-			//e.printStackTrace();
 			System.out.println("\n\t\t\t\t\t\tErreur ! Le membre n'a pas ete cree\n");
 		}
 	}
@@ -202,7 +208,12 @@ public class ConnexionBaseDeDonnees {
 	}
 
 	//Modifications
-	public void modifierTache(Tache tache) {			
+	public void modifierTache(Tache tache) {		
+		
+		tache.setNom(tache.getNom().replace('\'', ' '));
+		tache.setDescription((tache.getDescription().replace('\'', ' ')));
+		tache.setStatus((tache.getNom().replace('\'', ' ')));
+		
 		try {
 			stmt.executeUpdate("UPDATE TACHE SET NOM='"+tache.getNom()+"',DESCRIPTION='"+tache.getDescription()+
 					"',STATUS='"+tache.getStatus()+"',ID_MEMBRE='"+tache.getIdMembre()+
@@ -214,7 +225,10 @@ public class ConnexionBaseDeDonnees {
 		}
 	}
 
-	public void modifierMembre(Membre membre) {					
+	public void modifierMembre(Membre membre) {		
+		
+		membre.setNom(membre.getNom().replace('\'', ' '));
+		
 		try {
 			stmt.executeUpdate("UPDATE MEMBRE SET NOM='"+membre.getNom()+
 					"' WHERE ID='"+membre.getId()+"';"); 
